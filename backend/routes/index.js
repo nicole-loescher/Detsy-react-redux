@@ -1,14 +1,9 @@
-// const express = require('express')
-// const router = express.Router();
+const apiRouter = require('./api');
 
-// router.get('/hello/world', function(req, res){
-//     res.cookie('XSRF-TOKEN', req.csrfToken());
-//     res.send('Hello World');
-// });
-
-// module.exports = router;
 const express = require('express');
 const router = express.Router();
+
+router.use('/api', apiRouter);
 
 router.get('/hello/world', function (req, res) {
     res.cookie('XSRF-TOKEN', req.csrfToken());
