@@ -1,6 +1,6 @@
 const { port } = require('../config');
 
-const app = require('../config');
+const app = require('../app');
 const db = require('../db/models');
 
 db.sequelize
@@ -12,7 +12,6 @@ db.sequelize
     })
     .catch((err)=>{
         console.log('Database connection failure.');
-        constole.error(err);
+        console.error(err);
     });
 
-    
