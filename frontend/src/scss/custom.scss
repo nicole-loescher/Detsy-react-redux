@@ -1,0 +1,10 @@
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+$theme-colors: (
+    "info": tomato,
+    "danger": teal
+);
+$body-bg: white;
+$body-color: #111;
+
+@import '~bootstrap/scss/bootstrap.scss';
