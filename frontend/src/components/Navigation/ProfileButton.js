@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import Container from 'react-bootstrap/Container'
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -15,6 +16,7 @@ function ProfileButton({ user }) {
         if (!showMenu) return;
 
         const closeMenu = () => {
+            console.log('hit')
             setShowMenu(false);
         };
 

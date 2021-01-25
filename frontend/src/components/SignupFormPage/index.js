@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function SignupFormPage() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
-
+    
     if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
@@ -28,6 +29,7 @@ function SignupFormPage() {
     };
 
     return (
+    <Container>
         <form onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -39,7 +41,7 @@ function SignupFormPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                />
+                    />
             </label>
             <label>
                 Username
@@ -48,7 +50,7 @@ function SignupFormPage() {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                />
+                    />
             </label>
             <label>
                 Password
@@ -57,7 +59,7 @@ function SignupFormPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                />
+                    />
             </label>
             <label>
                 Confirm Password
@@ -66,10 +68,11 @@ function SignupFormPage() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
-                />
+                    />
             </label>
             <Button type="submit">Sign Up</Button>
         </form>
+    </Container>
     );
 }
 

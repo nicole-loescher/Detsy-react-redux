@@ -1,0 +1,20 @@
+.nav__logo--title {
+    color: rgb(45, 13, 58);
+    font-size: 3em;
+}
+.nav__logo--photo {
+    max-width: 7%;
+    border-radius: 50%;
+}
+.nav__logo {
+    display: flex;
+    justify-content: left;
+    list-style-type: none;
+}
+.nav__logo:hover {
+    background-color: ;
+}
+li {
+    list-style-type: none;
+ 
+}
