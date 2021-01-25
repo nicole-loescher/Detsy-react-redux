@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       rating: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT(2,1),
         allowNull: false,
       },
       createdAt: {

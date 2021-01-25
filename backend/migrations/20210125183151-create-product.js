@@ -19,6 +19,10 @@ module.exports = {
         type: Sequelize.NUMERIC,
         allowNull: false,
       },
+      imgPath: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

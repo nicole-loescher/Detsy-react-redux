@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import LoginFormModal from '../LoginFormModal';
 import Container from 'react-bootstrap/Container';
 import './Navigation.css';
-import logoPhoto from '../images/d20-logo.jpg';
+import logoPhoto from '../images/d20-logo.png';
 
 export function Navigation({isLoaded}){
     const sessionUser = useSelector(state => state.session.user)

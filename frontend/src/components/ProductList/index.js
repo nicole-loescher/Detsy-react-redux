@@ -1,3 +1,8 @@
+
+import { useSelector } from 'react-redux';
+import { ProductDetail } from '../ProductDetail';
+
+
 export function ProductList() {
     const products = useSelector(state => state.product)
     const productArr = Object.values(products)
