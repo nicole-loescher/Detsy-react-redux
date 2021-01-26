@@ -1,5 +1,4 @@
 const apiRouter = require('./api');
-
 const express = require('express');
 const router = express.Router();
 
@@ -8,7 +7,7 @@ router.use('/api', apiRouter);
 if (process.env.NODE_ENV !== 'production') {
     router.get('/api/csrf/restore', (req, res) => {
         res.cookie('XSRF-TOKEN', req.csrfToken());
-        return res.json({});
+        res.status(201).json({});
     });
 }
 
@@ -23,6 +22,7 @@ if (process.env.NODE_ENV === 'production') {
     
 
     router.use(express.static(path.resolve("../frontend/build")));
+    
     router.get(/^(?!\/?api).*/, (req, res) => {
         res.cookie('XSRF-TOKEN', req.csrfToken());
         return res.sendFile(

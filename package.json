@@ -1,0 +1,26 @@
+{
+  "name": "authenticate-me",
+  "version": "1.0.0",
+  "description": "Desty is a clone of etsy, with a tabletop roleplay game twist. The site will allow users to: * create a product listing for sale * view a product listing * update a product listing * delete a product listing * leave a review/comment on a product * add products to a cart *** ## To run this application locally, you'll need to:",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "npm run build --prefix frontend",
+    "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
+    "dev:backend": "npm install --prefix backend start",
+    "dev:frontend": "npm install --prefix frontend start",
+    "sequelize": "npm run --prefix backend sequelize",
+    "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicole-loescher/Detsy-react-redux.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicole-loescher/Detsy-react-redux/issues"
+  },
+  "homepage": "https://github.com/nicole-loescher/Detsy-react-redux#readme"
+}
