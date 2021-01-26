@@ -7,8 +7,6 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import './scss/custom.scss'
 import { ModalProvider } from './context/Modal';
 
 const store = configureStore();

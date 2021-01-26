@@ -1,18 +1,30 @@
 
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProduct } from '../../store/product';
 import { ProductDetail } from '../ProductDetail';
 
 
 export function ProductList() {
-    const products = useSelector(state => state.product)
+    const products = useSelector(state => {
+        return state.product
+    })
     const productArr = Object.values(products)
+    const dispatch = useDispatch();
 
+    useEffect(()=>{
+        dispatch(getProduct())
+    },[dispatch])
+
+    if(!products){
+        return 'no dice'
+    }
     return (
         <div>
-            <h2>Out picks for you</h2>
+            <h2>Our picks for you</h2>
             {productArr.map(product => (
-                <ProductDetail key={product.id} product={product} />
-            ))}
+                <ProductDetail product={product} />
+             ))}
         </div>
     )
 }

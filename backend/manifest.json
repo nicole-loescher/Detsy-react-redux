@@ -1,0 +1,15 @@
+{
+    "short_name": "Detsy",
+    "name": "Detsy",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}

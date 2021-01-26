@@ -1,6 +1,13 @@
 {
-  "short_name": "React Template",
-  "name": "Create React App Template",
+  "short_name": "Desty",
+  "name": "Detsy",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
