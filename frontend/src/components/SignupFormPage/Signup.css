@@ -61,3 +61,8 @@ input::placeholder {
 .signup__cancel:hover {
     color: white;
 }
+.login__cancel {
+    text-align: center;
+    margin: 0% 50%;
+    color:red;
+}

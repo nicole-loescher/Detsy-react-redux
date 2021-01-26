@@ -1,3 +1,6 @@
+.login {
+    background-image: url('../images/dice2-gif.gif');
+}
 .login__forms {
     padding: 2em;
     display: flex;
@@ -11,6 +14,7 @@
     padding: 1em;
 }
 .login__exit {
+
     align-self: center;
     justify-self: center;
 }

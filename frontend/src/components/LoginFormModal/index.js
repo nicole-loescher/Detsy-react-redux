@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
-import './LoginForm.css'
+import '../SignupFormPage/Signup.css'
 
 
 function LoginFormModal() {
@@ -12,12 +13,8 @@ function LoginFormModal() {
             <button onClick={()=> setShowModal(true)}>Log In</button>
             {showModal && (
                 <Modal onClick={() => setShowModal(false)}>
-                    <div className='login__exit'>
-                        <form action='./' method='get'>
-                            <button className='login__exit'> x </button>
-                        </form>
-                    </div>
-                    <LoginForm />
+                    {/* <Link to='/' className='login__cancel' onClick={() => setShowModal(false)}>Cancel</Link> */}
+                    <LoginForm showModal={showModal} setShowModal={setShowModal} />
                 </Modal>   
             )}
         </>
