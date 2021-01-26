@@ -1,6 +1,6 @@
-# Many-Minis
+# Desty
 ## What is it?
- Many-minis is a clone of etsy, with a tabletop roleplay game twist. The site will allow users to:
+ Desty is a clone of etsy, with a tabletop roleplay game twist. The site will allow users to:
 * create a product listing for sale
 * view a product listing
 * update a product listing
@@ -12,7 +12,7 @@
 
 * Clone the repo
 
-``` git clone https://github.com/nicole-loescher/authenticate-me```
+``` git clone https://github.com/nicole-loescher/Detsy-react-redux```
 * cd into the backend
 
 ``` cd backend```
