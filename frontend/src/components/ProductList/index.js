@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProduct } from '../../store/product';
 import { ProductDetail } from '../ProductDetail';
-
+import './ProductList.css'
 
 export function ProductList() {
     const products = useSelector(state => {
@@ -22,9 +22,11 @@ export function ProductList() {
     return (
         <div>
             <h2>Our top picks for you...</h2>
-            {productArr.map(product => (
-                <ProductDetail key={product.id} product={product} />
-             ))}
+            <div className='product__list'>
+                {productArr.map(product => (
+                    <ProductDetail key={product.id} product={product} />
+                    ))}
+            </div>
         </div>
     )
 }
