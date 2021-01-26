@@ -22,7 +22,7 @@ export function Navigation({isLoaded}){
         sessionLinks = (
             <>
                 <LoginFormModal />
-                <NavLink to='/signup'>Sign Up</NavLink>
+                <NavLink className='nav__signup' to='/signup'>Sign Up</NavLink>
             </>
         )
     }

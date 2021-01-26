@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+import './Signup.css'
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -29,48 +30,41 @@ function SignupFormPage() {
     };
 
     return (
-    <Container>
-        <form onSubmit={handleSubmit}>
+    <Container className='signup'>
+        <h1 className='signup__header'>Create an account today!</h1>
+        <form className='signup__form' onSubmit={handleSubmit}>
             <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error, idx) => <li className='signup__error' key={idx}>{error}</li>)}
             </ul>
-            <label>
-                Email
         <input
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    placeholder='Email'
                     />
-            </label>
-            <label>
-                Username
         <input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    />
-            </label>
-            <label>
-                Password
+                    placeholder='Username'
+                    />       
         <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    placeholder='Password'
                     />
-            </label>
-            <label>
-                Confirm Password
         <input
                     type="password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
+                    placeholder='Confirm Password'
                     />
-            </label>
-            <Button type="submit">Sign Up</Button>
+            <Button className='signup__submit' type="submit">Let's roll!</Button>
         </form>
     </Container>
     );
