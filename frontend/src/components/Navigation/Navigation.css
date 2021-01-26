@@ -14,16 +14,12 @@
 }
 .nav__logo--photo {
     width: 160px;
-    
-    /* border-radius: 50%; */
 }
 .nav__logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* height: 100%; */
-    /* list-style-type: none; */
-    /* padding: 1em; */
+    text-decoration: none;
 }
 .nav__logo:hover {
     /* background-color: rgb(224, 235, 217); */

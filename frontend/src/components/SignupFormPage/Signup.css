@@ -3,7 +3,7 @@
     color: white;
     background-image: url('../images/dice2-gif.gif');
     width: 500px;
-    height: 600px;
+    height: 610px;
     display: flex;
     flex-direction: column;
     margin: 0% 25% 25%;
@@ -22,7 +22,7 @@
     align-self: center;
     height: auto;
     width: 300px;
-    padding: 55% 25% 10% 25%;
+    padding: 52% 25% 10% 25%;
 
 }
 input {
@@ -39,6 +39,7 @@ input::placeholder {
     align-self: center;
     padding: 1em;
     margin: 1em;
+    margin-bottom: .5px;
     background-color: rgb(51, 21, 43);
     color: white;
 }
@@ -52,4 +53,11 @@ input::placeholder {
     text-align: center;
     text-decoration: none;
     margin: 0% 15% 0% 15%;
+}
+.signup__cancel {
+    text-align: center;
+
+}
+.signup__cancel:hover {
+    color: white;
 }
