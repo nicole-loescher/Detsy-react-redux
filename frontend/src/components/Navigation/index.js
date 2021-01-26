@@ -27,17 +27,25 @@ export function Navigation({isLoaded}){
         )
     }
     return (
-            <nav>
+        <nav>
+            <ul className='nav'>
                 <li>
-                    <NavLink to='/' exact>
-                    <div className='nav__logo'>
-                        <img className='nav__logo--photo ' src={logoPhoto} />
-                        <h2 className='nav__logo--title'>Many-Minis</h2>
-                    </div>
+                     <NavLink to='/' exact>
+                        <div className='nav__logo'>
+                            <img className='nav__logo--photo ' src={logoPhoto} />
+                            <h2 className='nav__logo--title'>Detsy
+                                <p className='nav__logo--snip'>Where the good times roll.</p>
+                            </h2>
+                        </div>
                     </NavLink>
-                    {isLoaded && sessionLinks}
                 </li>
-            </nav>
+                <li>
+                    <div className='nav__form'>
+                        {isLoaded && sessionLinks}
+                    </div>
+                </li>
+            </ul>
+        </nav>
 
     )
 

@@ -4,6 +4,8 @@ const cors = require('cors');
 const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
+
 
 const { ValidationError } = require('sequelize');
 const routes = require('./routes');
@@ -13,7 +15,8 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 if(!isProduction){
     app.use(cors());
