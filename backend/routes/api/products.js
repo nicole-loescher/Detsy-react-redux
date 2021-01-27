@@ -1,8 +1,6 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 const ProductRepo = require('../../db/products-repository')
-const csrf = require('csurf');
-const csrfProtection = csrf();
 const router = express.Router();
 const { Product } = require('../../db/models');
 const { check } = require('express-validator');
@@ -12,7 +10,7 @@ const validateProduct = [
     check('name')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a name for your product.'),
-    check('image')
+    check('imgPath')
         .exists({ checkFalsy: true })
         .isURL()
         .withMessage('Please provide an image URL for your product.'),
@@ -21,7 +19,6 @@ const validateProduct = [
         .isInt()
         .withMessage('Please enter a price for your product'),
     handleValidationErrors,
-    csrfProtection
 ]   
 
 router.get('/', asyncHandler(async(req, res)=> {
@@ -42,8 +39,9 @@ router.get('/:id', asyncHandler(async(req, res)=>{
 // }));
 
 router.post('', validateProduct, asyncHandler(async (req, res) => {
-        const { name, image, price, type, description } = req.body;
-    const product = await Product.add({ name, image, price, type, description });
+        const { name, imgPath, price, category_id, description } = req.body;
+        const user_id = 1
+    const product = await Product.add({ name, imgPath, price, category_id, user_id, description });
 
         return res.json({
             product,

@@ -15,7 +15,6 @@ function ProfileButton({ user }) {
         if (!showMenu) return;
 
         const closeMenu = () => {
-            console.log('hit')
             setShowMenu(false);
         };
 

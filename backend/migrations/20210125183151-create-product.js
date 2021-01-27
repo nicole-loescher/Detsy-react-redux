@@ -20,7 +20,7 @@ module.exports = {
         allowNull: false,
       },
       imgPath: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(400),
         allowNull: false,
       },
       user_id: {
