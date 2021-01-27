@@ -37,6 +37,7 @@ export function ProductForm ({user}) {
         return dispatch(productActions.createProduct({ name, imgPath, price, category_id, user_id, description })).catch(
             res => {
                 if (res.data && res.data.errors) setErrors(res.data.errors)
+                else ( history.push('/'))
             }
         )
     }

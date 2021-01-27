@@ -23,7 +23,7 @@ export function ProductList() {
     return (
             <div className='product__list'>
                 {productArr.map(product => (
-                        <ProductDetail product={product} />
+                        <ProductDetail key={product.id} product={product} />
                     ))}
             </div>
     )

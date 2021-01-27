@@ -39,8 +39,7 @@ router.get('/:id', asyncHandler(async(req, res)=>{
 // }));
 
 router.post('', validateProduct, asyncHandler(async (req, res) => {
-        const { name, imgPath, price, category_id, description } = req.body;
-        const user_id = 1
+        const { name, imgPath, price, category_id, user_id, description } = req.body;
     const product = await Product.add({ name, imgPath, price, category_id, user_id, description });
 
         return res.json({
