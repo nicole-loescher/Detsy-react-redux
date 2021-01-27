@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Navigation } from "./components/Navigation";
 import { ProductForm } from "./components/ProductForm";
-import { ProductList } from "./components/ProductList";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -14,7 +14,6 @@ function SignupFormPage() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
-    const history = useHistory();
     
     if (sessionUser) return <Redirect to="/" />;
 

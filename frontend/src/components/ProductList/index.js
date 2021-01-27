@@ -24,7 +24,7 @@ export function ProductList() {
             <h2>Our top picks for you...</h2>
             <div className='product__list'>
                 {productArr.map(product => (
-                    <ProductDetail key={product.id} product={product} />
+                        <ProductDetail product={product} />
                     ))}
             </div>
         </div>

@@ -23,9 +23,9 @@ export const getOneProduct = (id) => async dispatch => {
     };
 };
 
-const initState = {
-    products: []
-}
+// const initState = {
+//     products: []
+// }
 
 const productReducer =  (state = {}, action) => {
     switch( action.type ){
@@ -37,7 +37,6 @@ const productReducer =  (state = {}, action) => {
             return {
                 ...allProducts,
                 ...state,
-                payload: action.products
             }
         }
         default:
