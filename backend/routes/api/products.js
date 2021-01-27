@@ -48,6 +48,16 @@ router.post('', validateProduct, asyncHandler(async (req, res) => {
     }),
 );
 
+router.put('/:productId', validateProduct, asyncHandler(async (req, res)=>{
+    const { name, imgPath, price, category_id, user_id, description } = req.body;
+    const id = await ProductRepo.update({ name, imgPath, price, category_id, user_id, description });
+    const product = await ProductRepo.one(id);
+    
+    return res.json({
+        product,
+    });
+}))
+
 
 
 module.exports = router;

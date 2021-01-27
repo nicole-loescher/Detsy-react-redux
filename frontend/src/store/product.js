@@ -38,6 +38,18 @@ export const createProduct = (newProduct) => async dispatch => {
     }
 }
 
+export const updateProduct = (payload) => async dispatch => {
+    const res = await fetch(`/api/products/${payload.id}`, {
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+    })
+        return dispatch(setProduct(res.data));
+}
+
+
 const productReducer =  (state = {}, action) => {
     switch( action.type ){
         case SET_PRODUCT: {

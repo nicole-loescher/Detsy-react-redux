@@ -5,6 +5,7 @@ import { Home } from "./components/Home";
 import { Navigation } from "./components/Navigation";
 import { ProductForm } from "./components/ProductForm";
 import SignupFormPage from "./components/SignupFormPage";
+import { ReadProduct } from "./components/ReadProduct"
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path='/signup'>
             <SignupFormPage />
+          </Route>
+          <Route path='/products/:productId'>
+            <ReadProduct />
           </Route>
           <Route path='/add-product'>
             <ProductForm user={user} />
