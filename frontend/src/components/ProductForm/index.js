@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createProduct } from "../../store/product";
+import * as productActions from "../../store/product";
+
 import './ProductForm.css';
 
 export function ProductForm ({user}) {
@@ -9,6 +10,7 @@ export function ProductForm ({user}) {
     const [ price, setPrice ] = useState();
     const [ description, setDescription ] = useState('');
     const [ image, setImage ] = useState('');
+    const [errors, setErrors] = useState([]);
     const history = useHistory();
     const dispatch = useDispatch();
     
@@ -25,22 +27,19 @@ export function ProductForm ({user}) {
     const [ type, setType ] = useState(categoriesArr[0]);
     const onSubmit = async(e) =>{
         e.preventDefault();
-        const newProduct = {
-            name,
-            price,
-            description,
-            type,
-            image,
-        }
-        console.log(newProduct)
-        const product = await dispatch(createProduct(newProduct))
-        if(product){
-        history.push(`/products/${product.id}`)
-        }
+        setErrors([]);
+        return dispatch(productActions.createProduct({ name, price, type, image, description })).catch(
+            res => {
+                if (res.data && res.data.errors) setErrors(res.data.errors)
+            }
+        )
     }
     return (
         <div className='product-form'>
             <form className='product-form__form' onSubmit={onSubmit}>
+                <ul>
+                    {errors.map((error, idx) => <li className='product-form__error' key={idx}>{error}</li>)}
+                </ul>
                 <h2> Hello, {user.username} </h2>
                 <p> Time to get selling!</p>
                 <h2 className='product-form__title'> Enter your product for sale </h2>

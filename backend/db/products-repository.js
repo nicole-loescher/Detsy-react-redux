@@ -8,7 +8,7 @@ async function one(id) {
     return await Product.findByPk(id);
 }
 
-async function create(details) {
+async function add(details) {
     const product = await Product.create(details);
     return product.id
 }
@@ -16,5 +16,5 @@ async function create(details) {
 module.exports = {
     list, 
     one,
-    create
+    add
 }

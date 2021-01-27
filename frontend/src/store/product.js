@@ -1,6 +1,8 @@
+import { fetch } from  './csrf';
+
 const SET_PRODUCT = 'product/SET_PRODUCT';
 
-export const setProduct = (products) => ({
+const setProduct = (products) => ({
     type: SET_PRODUCT,
     products
 });
@@ -8,10 +10,8 @@ export const setProduct = (products) => ({
 export const getProduct = () => async dispatch =>{
     const res = await fetch(`/api/products`);
 
-    if(res.ok){
-        const products = await res.json();
-        dispatch(setProduct(products));
-    };
+    return dispatch(setProduct(res.data));
+
 };
 
 export const getOneProduct = (id) => async dispatch => {
