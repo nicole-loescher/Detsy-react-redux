@@ -5,6 +5,7 @@ import { getProduct } from '../../store/product';
 import { ProductDetail } from '../ProductDetail';
 import './ProductList.css'
 
+
 export function ProductList() {
     const products = useSelector(state => {
         return state.product
@@ -20,13 +21,10 @@ export function ProductList() {
         return 'no dice'
     }
     return (
-        <div>
-            <h2>Our top picks for you...</h2>
             <div className='product__list'>
                 {productArr.map(product => (
                         <ProductDetail product={product} />
                     ))}
             </div>
-        </div>
     )
 }

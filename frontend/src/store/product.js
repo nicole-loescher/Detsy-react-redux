@@ -23,9 +23,20 @@ export const getOneProduct = (id) => async dispatch => {
     };
 };
 
-// const initState = {
-//     products: []
-// }
+export const createProduct = (newProduct) => async dispatch => {
+    const res = await fetch('/api/products', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newProduct),
+    })
+    if(res.ok){
+        const product = await res.json();
+        dispatch(setProduct(product));
+        return product;
+    }
+}
 
 const productReducer =  (state = {}, action) => {
     switch( action.type ){
