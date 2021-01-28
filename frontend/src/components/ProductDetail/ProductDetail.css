@@ -11,7 +11,7 @@
 .product__img {
     box-sizing: border-box;
     max-width: 80%;
-    box-shadow: 0px 0px 4px 4px rgb(51, 21, 43);
+    box-shadow: 0px 0px 4px 4px rgb(85, 106, 77);
     border-radius: 5px;
     margin: 10px;
     align-self: center;
@@ -20,7 +20,7 @@
     transform: scale(1.01);
 }
 .product__title {
-    color:rgb(51, 21, 43);
+    color:rgb(85, 106, 77);
     font-family: 'eczar';
     align-self: center;
     margin: 1px 10% 1px 10%;
@@ -43,12 +43,34 @@
     width: 70%;
     align-self: center;
     padding: 4px;
-    background-color: rgb(51, 21, 43);
+    background-color: rgb(85, 106, 77);
     color: white;
     border-radius: 5px;
 }
 .product__add:hover {
     background-color: white;
-    color: rgb(51, 21, 43);
+    color: rgb(85, 106, 77);
     font-weight: bold;
+}
+.product-edit__button {
+    background-color: rgb(85, 51, 58);
+    color: white;
+    width: 70%;
+    align-self: center;
+    padding: 4px;
+    border-radius: 5px;
+}
+.product-edit__button:hover {
+    color: rgb(85, 51, 58);
+    background-color: white;
+    
+}
+.product-edit__submit {
+     width: 70%;
+    align-self: center;
+    padding: 4px;
+    background-color: rgb(85, 106, 77);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
 }

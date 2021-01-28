@@ -24,10 +24,16 @@ async function update(details) {
     );
     return id;
 }
+async function deleteProduct(id) {
+    const product = await Product.findByPk(id);
+    await product.destroy({ where: { id }});
+    return id;
+}
 
 module.exports = {
     list, 
     one,
     add,
-    update
+    update,
+    deleteProduct
 }

@@ -2,6 +2,7 @@ import { fetch } from  './csrf';
 
 const SET_PRODUCT = 'product/SET_PRODUCT';
 const ADD_PRODUCT = 'product/ADD_PRODUCT';
+const REMOVE_PRODUCT = 'product/REMOVE_PRODUCT';
 
 const setProduct = (products) => ({
     type: SET_PRODUCT,
@@ -10,7 +11,11 @@ const setProduct = (products) => ({
 const addProduct = (product) => ({
     type: ADD_PRODUCT,
     product
-})
+});
+const removeProduct = (id) => ({
+    type: REMOVE_PRODUCT,
+    id
+});
 
 export const getProduct = () => async dispatch =>{
     const res = await fetch(`/api/products`);
@@ -54,10 +59,21 @@ export const updateProduct = (payload) => async dispatch => {
         return dispatch(addProduct(res.data.product))
 
 }
+export const deleteProduct = (productId) => async dispatch => {
+    const res = await fetch(`/api/products/${productId}`, {
+        method: 'delete'
+    })
+  return dispatch(removeProduct(productId))
+}
 
 
 const productReducer =  (state = [], action) => {
     switch( action.type ){
+        case REMOVE_PRODUCT: {
+            const newState = { ...state };
+            delete newState[action.id];
+            return newState;
+        }
         case SET_PRODUCT: {
             const allProducts = {};
             action.products.forEach(product => {

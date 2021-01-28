@@ -7,10 +7,10 @@ import './ProductForm.css';
 
 export function ProductForm ({user}) {
     const [ name, setName ] = useState('');
-    const [ price, setPrice ] = useState();
+    const [ price, setPrice ] = useState(0);
     const [ description, setDescription ] = useState('');
     const [ imgPath, setImgPath ] = useState('');
-    const [errors, setErrors] = useState([]);
+    const [ errors, setErrors ] = useState([]);
     const history = useHistory();
     const dispatch = useDispatch();
     

@@ -4,7 +4,7 @@
     color: white;
     flex-direction: column;
     box-sizing: border-box;
-    box-shadow: 0px 0px 8px 2px rgb(51, 21, 43);
+    box-shadow: 0px 0px 8px 2px rgb(85, 106, 77);
     max-width: 550px;
     margin: 0px 20% 0px 20%;
 }
@@ -20,12 +20,12 @@
     padding: 1em;
     margin: 1em;
     margin-bottom: .5px;
-    background-color: rgb(51, 21, 43);
+    background-color: rgb(85, 106, 77);
     color: white;
 }
 .product-form__submit:hover {
     background-color: white;
-    color: rgb(51, 21, 43);
+    color: rgb(85, 106, 77);
     font-weight: bold;
     width: 35%;
 }
@@ -44,14 +44,14 @@ input {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    outline: rgb(51, 21, 43);
+    outline: rgb(85, 106, 77);
 
 }
 .product-form__img {
     margin: 2px 25% 2px 25%;
     align-self: right;
     background-color: white;
-    color: rgb(51, 21, 43);
+    color: rgb(85, 106, 77);
     font-weight: bold;
     width: auto;
 

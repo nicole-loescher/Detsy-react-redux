@@ -2,9 +2,10 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateProduct } from '../../store/product'
+import './EditProduct.css'
 
 
-export function EditProduct({ product, hideForm }){
+export function EditProduct({ product, hideForm, deleteProduct }){
     const [name, setName] = useState(product.name);
     const [price, setPrice] = useState(product.price);
     const [description, setDescription] = useState(product.description);
@@ -52,9 +53,9 @@ export function EditProduct({ product, hideForm }){
 
     return(
         <div>
-            <form className='product-form__form' onSubmit={onSubmit}>
+            <form className='product-edit__form' onSubmit={onSubmit}>
                 <ul>
-                    {errors.map((error, idx) => <li className='product-form__error' key={idx}>{error}</li>)}
+                    {errors.map((error, idx) => <li className='product-edit__error' key={idx}>{error}</li>)}
                 </ul>
                 <input
                     placeholder='Product Name'
@@ -97,8 +98,9 @@ export function EditProduct({ product, hideForm }){
                     type='text'
                 >
                 </textarea>
-                <button className='product-form__submit'>Submit</button>
-                <button onClick={onCancel} className='product-form__submit'>Cancel</button>
+                <button className='product-edit__submit'>Submit</button>
+                <button onClick={deleteProduct} className='product-edit__submit'>Delete</button>
+                <button onClick={onCancel} className='product-edit__submit'>Cancel</button>
             </form>
         </div>
     )

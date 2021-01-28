@@ -30,13 +30,9 @@ router.get('/', asyncHandler(async(req, res)=> {
 
 router.get('/:id', asyncHandler(async(req, res)=>{
     const product = await ProductRepo.one(req.params.id)
+    console.log('got product # ', req.params.id)
     return res.json(product)
 }));
-
-// router.post('/', , asyncHandler(async(req, res)=>{
-//     const id = await ProductRepo.create(req.body);
-//     return res.redirect(`/products/${id}`)
-// }));
 
 router.post('', validateProduct, asyncHandler(async (req, res) => {
         const { name, imgPath, price, category_id, user_id, description } = req.body;
@@ -49,13 +45,18 @@ router.post('', validateProduct, asyncHandler(async (req, res) => {
 );
 
 router.put('/:id', validateProduct, asyncHandler(async (req, res)=>{
-    const id = req.params.id
+    const id = req.params.id;
     const { name, imgPath, price, category_id, user_id, description } = req.body;
     const productId = await ProductRepo.update({ id, name, imgPath, price, category_id, user_id, description });
     const product = await ProductRepo.one(productId);
 
     return res.json({product});
-}))
+}));
+
+router.delete('/:id', asyncHandler(async (req, res)=> {
+    const productId = await ProductRepo.deleteProduct(req.params.id);
+    res.status(200).json('deleted')
+}));
 
 
 

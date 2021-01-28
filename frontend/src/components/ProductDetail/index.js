@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { EditProduct } from '../EditProduct'
-import { DeleteProduct } from '../DeleteProduct'
+import { deleteProduct } from '../../store/product'
 import './ProductDetail.css';
 
 export function ProductDetail({ product }) {
     const user = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+
     const [hideForm, setHideForm ]= useState(true)
     let content;
         if (!user || user.id !== product.user_id){
@@ -16,15 +18,14 @@ export function ProductDetail({ product }) {
         }
         else if(user.id === product.user_id){
             content = (
-                <button onClick={(e)=> setHideForm(false)}>
+                <button className='product-edit__button' onClick={(e)=> setHideForm(false)}>
                     Edit
                 </button>
             )
             if(!hideForm){
                 content=(
                     <div>
-                        <EditProduct product={product} hideForm={() => setHideForm(true)} />
-                        <DeleteProduct />
+                        <EditProduct product={product} hideForm={() => setHideForm(true)} deleteProduct={() => dispatch(deleteProduct(product.id))} />
                     </div>
                 )
             }
