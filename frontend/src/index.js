@@ -8,6 +8,7 @@ import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as productActions from './store/product';
+import * as cartActions from './store/cart';
 import { ModalProvider } from './context/Modal';
 
 const store = configureStore();
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.sessionActions = sessionActions;
   window.productActions = productActions;
+  window.cartActions = cartActions;
 }
 
 function Root() {

@@ -6,7 +6,6 @@ export function ReadProduct() {
     const { productId } = useParams();
 
     const product = useSelector( state => state.product[productId]);
-    console.log(product)
 
     return (
         <div>

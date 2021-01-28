@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { EditProduct } from '../EditProduct'
 import { deleteProduct } from '../../store/product'
+import { addToCart } from '../../store/cart'
 import './ProductDetail.css';
 
 export function ProductDetail({ product }) {
@@ -13,7 +14,7 @@ export function ProductDetail({ product }) {
     let content;
         if (!user || user.id !== product.user_id){
         content = (
-            <button className='product__add'>Add to cart</button>
+            <button className='product__add' onClick={()=> dispatch(addToCart(product.id))}>Add to cart</button>
             )
         }
         else if(user.id === product.user_id){

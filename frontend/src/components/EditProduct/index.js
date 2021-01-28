@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { updateProduct } from '../../store/product'
 import './EditProduct.css'
 
@@ -10,9 +9,6 @@ export function EditProduct({ product, hideForm, deleteProduct }){
     const [price, setPrice] = useState(product.price);
     const [description, setDescription] = useState(product.description);
     const [imgPath, setImgPath] = useState(product.imgPath);
-    const [errors, setErrors] = useState([]);
-    const [showForm, setShowForm] = useState(false);
-    const history = useHistory();
     const dispatch = useDispatch();
     
     const categoriesArr = [
@@ -54,9 +50,6 @@ export function EditProduct({ product, hideForm, deleteProduct }){
     return(
         <div>
             <form className='product-edit__form' onSubmit={onSubmit}>
-                <ul>
-                    {errors.map((error, idx) => <li className='product-edit__error' key={idx}>{error}</li>)}
-                </ul>
                 <input
                     placeholder='Product Name'
                     value={name}

@@ -30,7 +30,6 @@ router.get('/', asyncHandler(async(req, res)=> {
 
 router.get('/:id', asyncHandler(async(req, res)=>{
     const product = await ProductRepo.one(req.params.id)
-    console.log('got product # ', req.params.id)
     return res.json(product)
 }));
 

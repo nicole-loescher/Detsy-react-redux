@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import logoPhoto from '../images/d20-logo.png';
+import { ShoppingCart } from '../ShoppingCart';
 
 export function Navigation({isLoaded}){
     const sessionUser = useSelector(state => state.session.user)
@@ -11,7 +12,10 @@ export function Navigation({isLoaded}){
     let sessionLinks;
     if(sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <div>
+                <ProfileButton user={sessionUser} />
+                {/* <ShoppingCart /> */}
+            </div>
         );
     }
     else {
@@ -38,7 +42,9 @@ export function Navigation({isLoaded}){
                 <li>
                     <div className='nav__form'>
                         {isLoaded && sessionLinks}
+                        <ShoppingCart />
                     </div>
+
                 </li>
             </ul>
         </nav>

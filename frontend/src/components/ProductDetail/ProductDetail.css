@@ -11,13 +11,13 @@
 .product__img {
     box-sizing: border-box;
     max-width: 80%;
-    box-shadow: 0px 0px 4px 4px rgb(85, 106, 77);
+    box-shadow: 0px 0px 4px 4px rgb(85, 51, 58);
     border-radius: 5px;
     margin: 10px;
     align-self: center;
 }
 .product:hover {
-    transform: scale(1.01);
+    transform: scale(1.1);
 }
 .product__title {
     color:rgb(85, 106, 77);

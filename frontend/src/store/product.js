@@ -17,7 +17,7 @@ const removeProduct = (id) => ({
     id
 });
 
-export const getProduct = () => async dispatch =>{
+export const getProducts = () => async dispatch =>{
     const res = await fetch(`/api/products`);
 
     return dispatch(setProduct(res.data));
@@ -27,10 +27,7 @@ export const getProduct = () => async dispatch =>{
 export const getOneProduct = (id) => async dispatch => {
     const res = await fetch(`/api/products/${id}`);
 
-    if(res.ok){
-        const product = await res.json();
-        dispatch(setProduct(product));
-    };
+        return dispatch(setProduct(res.data.product));
 };
 
 export const createProduct = (newProduct) => async dispatch => {
@@ -90,7 +87,6 @@ const productReducer =  (state = [], action) => {
                     ...state,
                     [action.product.id]: action.product
                 };
-                console.log(newState)
                 const productList = newState.product.map(id => newState[id]);
                 productList.push(action.product);
                 newState.product = productList;
