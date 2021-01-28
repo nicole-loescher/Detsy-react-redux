@@ -1,5 +1,7 @@
 .home__intro {
-    font-size: .3em;
+    font-size: .25em;
+    margin-top: 0px;
+    margin-bottom: 15x;
 }
 .home__title {
     font-size: 4em;

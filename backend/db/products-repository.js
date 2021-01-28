@@ -19,8 +19,7 @@ async function update(details) {
     await Product.update(
         details,
         {
-            where: { id },
-            returning: true,
+            where: { id }
         }
     );
     return id;

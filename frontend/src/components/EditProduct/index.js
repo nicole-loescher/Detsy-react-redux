@@ -37,10 +37,10 @@ export function EditProduct({ product, hideForm }){
             imgPath,
             category_id
         };
-        let updatedProduct = await dispatch(updateProduct(payload));
-        if(updatedProduct){
-            hideForm();
-        }
+        return await dispatch(updateProduct(payload));
+        // if(updatedProduct){
+        //     hideForm();
+        // }
     }
     // if(!showForm){
     //   return null;
@@ -53,10 +53,6 @@ export function EditProduct({ product, hideForm }){
                 <ul>
                     {errors.map((error, idx) => <li className='product-form__error' key={idx}>{error}</li>)}
                 </ul>
-                <input 
-                type='hidden'
-                value={id}
-                />
                 <input
                     placeholder='Product Name'
                     value={name}

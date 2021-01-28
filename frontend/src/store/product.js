@@ -1,11 +1,16 @@
 import { fetch } from  './csrf';
 
 const SET_PRODUCT = 'product/SET_PRODUCT';
+const ADD_PRODUCT = 'product/ADD_PRODUCT';
 
 const setProduct = (products) => ({
     type: SET_PRODUCT,
     products
 });
+const addProduct = (product) => ({
+    type: ADD_PRODUCT,
+    product
+})
 
 export const getProduct = () => async dispatch =>{
     const res = await fetch(`/api/products`);
@@ -46,11 +51,12 @@ export const updateProduct = (payload) => async dispatch => {
         },
         body: JSON.stringify(payload),
     })
-        return dispatch(setProduct(res.data));
+        return dispatch(addProduct(res.data.product))
+
 }
 
 
-const productReducer =  (state = {}, action) => {
+const productReducer =  (state = [], action) => {
     switch( action.type ){
         case SET_PRODUCT: {
             const allProducts = {};
@@ -61,6 +67,26 @@ const productReducer =  (state = {}, action) => {
                 ...allProducts,
                 ...state,
             }
+        }
+        case ADD_PRODUCT: {
+            if (!state[action.product.id]) {
+                const newState = {
+                    ...state,
+                    [action.product.id]: action.product
+                };
+                console.log(newState)
+                const productList = newState.product.map(id => newState[id]);
+                productList.push(action.product);
+                newState.product = productList;
+                return newState;
+            }
+            return {
+                ...state,
+                [action.product.id]: {
+                    ...state[action.product.id],
+                    ...action.product,
+                }
+            };
         }
         default:
             return state;

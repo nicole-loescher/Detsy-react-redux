@@ -33,8 +33,8 @@
 
 }
 .product__details {
-    font-family: 'eczar';
-    font-size:small;
+    /* font-family: 'eczar'; */
+    font-size: 1em;
     align-self: center;
     text-align: center;
     padding: 2%;
