@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateProduct } from '../../store/product'
 
+
 export function EditProduct({ product, hideForm }){
     const [name, setName] = useState(product.name);
     const [price, setPrice] = useState(product.price);
@@ -37,14 +38,16 @@ export function EditProduct({ product, hideForm }){
             imgPath,
             category_id
         };
-        return await dispatch(updateProduct(payload));
-        // if(updatedProduct){
-        //     hideForm();
-        // }
+        const updatedProduct = await dispatch(updateProduct(payload));
+        if(updatedProduct){
+            hideForm();
+            return updatedProduct
+        }
     }
-    // if(!showForm){
-    //   return null;
-    // }
+    const onCancel = (e) => {
+        e.preventDefault();
+        hideForm();
+    }
    const id = product.id
 
     return(
@@ -62,7 +65,6 @@ export function EditProduct({ product, hideForm }){
                 </input>
                 <input
                     placeholder='Enter image URL'
-                    // className='product-form__img'
                     value={imgPath}
                     onChange={(e) => setImgPath(e.target.value)}
                     type='text'
@@ -96,6 +98,7 @@ export function EditProduct({ product, hideForm }){
                 >
                 </textarea>
                 <button className='product-form__submit'>Submit</button>
+                <button onClick={onCancel} className='product-form__submit'>Cancel</button>
             </form>
         </div>
     )

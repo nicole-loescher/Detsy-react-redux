@@ -1,3 +1,6 @@
+a {
+    text-decoration: none;
+}
 .nav {
     box-sizing: border-box;
     display: flex;
