@@ -26,9 +26,9 @@ function App() {
           <Route path='/signup'>
             <SignupFormPage />
           </Route>
-          <Route path='/products/:productId'>
+          {/* <Route path='/products/:productId'>
             <ReadProduct />
-          </Route>
+          </Route> */}
           <Route path='/add-product'>
             <ProductForm user={user} />
           </Route>

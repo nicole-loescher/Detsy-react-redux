@@ -8,7 +8,7 @@ router.get('/', asyncHandler(async(req, res)=>{
     return res.json(reviews)
 }));
 
-router.post('', asyncHandler(async(req, res)=>{
+router.post('/', asyncHandler(async(req, res)=>{
     const { user_id, product_id, comments, rating } = req.body;
     const review = await ReviewRepo.add({ user_id, product_id, comments, rating });
 
