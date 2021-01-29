@@ -67,6 +67,7 @@ export const deleteProduct = (productId) => async dispatch => {
 const productReducer =  (state = [], action) => {
     switch( action.type ){
         case REMOVE_PRODUCT: {
+            debugger;
             const newState = { ...state };
             delete newState[action.id];
             return newState;
@@ -82,6 +83,7 @@ const productReducer =  (state = [], action) => {
             }
         }
         case ADD_PRODUCT: {
+            console.log(action)
             if (!state[action.product.id]) {
                 const newState = {
                     ...state,

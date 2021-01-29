@@ -1,8 +1,10 @@
 .shopping-cart{   
     position: relative;
-    top: 20px;
+    right: 2%;
+    top: 30%;
     display: flex;
     flex-direction: column;
+    text-align: left;
     border-radius: 5px;
     width: 150px;
     box-sizing: border-box;
