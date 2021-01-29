@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     product_id: DataTypes.INTEGER
   }, {});
   Cart.associate = function(models) {
-    // associations can be defined here
+    Cart.hasMany(models.Product, {foreignKey: 'product_id'})
   };
   return Cart;
 };

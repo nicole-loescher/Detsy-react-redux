@@ -92,9 +92,9 @@ export function EditProduct({ product, hideForm, deleteProduct }){
                 >
                 </textarea>
                 <button className='product-edit__submit'>Submit</button>
+            </form>
                 <button onClick={deleteProduct} className='product-edit__submit'>Delete</button>
                 <button onClick={onCancel} className='product-edit__submit'>Cancel</button>
-            </form>
         </div>
     )
     

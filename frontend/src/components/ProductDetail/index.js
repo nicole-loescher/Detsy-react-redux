@@ -26,7 +26,11 @@ export function ProductDetail({ product }) {
             if(!hideForm){
                 content=(
                     <div>
-                        <EditProduct product={product} hideForm={() => setHideForm(true)} deleteProduct={() => dispatch(deleteProduct(product.id))} />
+                        <EditProduct product={product} hideForm={() => setHideForm(true)} deleteProduct={() =>{
+                        dispatch(deleteProduct(product.id))}
+                        }
+                         />
+                            
                     </div>
                 )
             }

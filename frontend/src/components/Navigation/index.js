@@ -13,8 +13,15 @@ export function Navigation({isLoaded}){
     if(sessionUser) {
         sessionLinks = (
             <div>
-                <ProfileButton user={sessionUser} />
-                {/* <ShoppingCart /> */}
+                <div>
+                    <ProfileButton user={sessionUser} />
+                </div>
+                <div>
+                    <ShoppingCart />
+                </div>
+                <div>
+                    <NavLink to='/add-product'>Add product</NavLink>
+                </div>
             </div>
         );
     }
@@ -40,9 +47,9 @@ export function Navigation({isLoaded}){
                     </NavLink>
                 </li>
                 <li>
-                    <div className='nav__form'>
+                    <div>
                         {isLoaded && sessionLinks}
-                        <ShoppingCart />
+                        {/* <ShoppingCart /> */}
                     </div>
 
                 </li>
