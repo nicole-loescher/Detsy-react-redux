@@ -23,7 +23,7 @@ const validateProduct = [
 
 router.get('/', asyncHandler(async(req, res)=> {
     const products = await ProductRepo.list();
-    console.group(products)
+    // console.group(products)
     return res.json(products)
 
 }));
@@ -35,12 +35,11 @@ router.get('/:id', asyncHandler(async(req, res)=>{
 
 router.post('', validateProduct, asyncHandler(async (req, res) => {
         const { name, imgPath, price, category_id, user_id, description } = req.body;
-    const product = await Product.add({ name, imgPath, price, category_id, user_id, description });
-
+        const product = await ProductRepo.add({ name, imgPath, price, category_id, user_id, description });
         return res.json({
             product,
         });
-    }),
+    })
 );
 
 router.put('/:id', validateProduct, asyncHandler(async (req, res)=>{

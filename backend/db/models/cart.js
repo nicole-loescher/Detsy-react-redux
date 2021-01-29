@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     product_id: DataTypes.INTEGER
   }, {});
   Cart.associate = function(models) {
-    Cart.hasMany(models.Product, {foreignKey: 'product_id'})
+    // Cart.hasMany(models.Product, {foreignKey: 'product_id'})
   };
   return Cart;
 };
