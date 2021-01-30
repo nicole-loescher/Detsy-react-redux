@@ -7,7 +7,7 @@ import './ProductForm.css';
 
 export function ProductForm ({user}) {
     const [ name, setName ] = useState('');
-    const [ price, setPrice ] = useState(0);
+    const [ price, setPrice ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ imgPath, setImgPath ] = useState('');
     const [ errors, setErrors ] = useState([]);
@@ -59,7 +59,6 @@ export function ProductForm ({user}) {
                 </input>
                 <input
                 placeholder='Enter image URL'
-                // className='product-form__img'
                 value={imgPath}
                 onChange = {(e)=> setImgPath(e.target.value)}
                 type='text'
@@ -70,9 +69,11 @@ export function ProductForm ({user}) {
                 value={price}
                 onChange = {(e)=> setPrice(e.target.value)}
                 type='number'
+                min='0'
                 >
                 </input>
                 <select
+                hidden
                 onChange= {e => setCategory_id(e.target.value)}>
                     {categoriesArr.map(category =>{
                     return(

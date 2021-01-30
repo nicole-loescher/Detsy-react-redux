@@ -6,7 +6,7 @@
     box-sizing: border-box;
     box-shadow: 0px 0px 8px 2px rgb(85, 106, 77);
     max-width: 550px;
-    margin: 0px 20% 0px 20%;
+    margin: 0px 25%;
 }
 .product-form__form {
     display: flex;
@@ -15,26 +15,26 @@
     margin-bottom: 60px;
 }
 .product-form__submit {
-    width: 30%;
+    width: 70%;
     align-self: center;
     padding: 1em;
     margin: 1em;
     margin-bottom: .5px;
     background-color: rgb(85, 106, 77);
     color: white;
+    border-radius: 5px;
 }
 .product-form__submit:hover {
     background-color: white;
     color: rgb(85, 106, 77);
     font-weight: bold;
-    width: 35%;
 }
 input {
     box-sizing: border-box;
-    max-width: 400px;
+    width: 70%;
     border-radius: 5px;
-    padding: 2px;
-    margin: 2px;
+    padding: 4px;
+    margin: 4px;
     outline: none;
 }
 .product-form__description {
@@ -55,4 +55,13 @@ input {
     font-weight: bold;
     width: auto;
 
+}
+textarea {
+    width: 68%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: cursive;
+    padding: 4px;
+    margin: 4px;
 }

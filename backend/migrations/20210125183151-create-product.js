@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       price: {
-        type: Sequelize.NUMERIC,
+        type: Sequelize.FLOAT(5,2),
         allowNull: false,
       },
       imgPath: {

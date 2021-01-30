@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, deleteProduct } from '../../store/product';
+import { getReviews } from '../../store/review';
 import { ProductDetail } from '../ProductDetail';
 import './ProductList.css'
 
@@ -15,7 +16,7 @@ export function ProductList() {
 
     useEffect(()=>{
         dispatch(getProducts())
-
+        dispatch(getReviews())
     },[dispatch])
 
     if(!products){

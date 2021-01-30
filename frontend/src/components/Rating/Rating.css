@@ -1,0 +1,37 @@
+.rating__img {
+    width: 100%;
+    box-sizing: border-box;
+}
+.rating__num {
+    position: absolute;
+    align-items: center;
+    font-size: 10px;
+    /* font-family: monospace; */
+}
+.rating__comment {
+    font-family: fantasy;
+    font-size: 16px;
+    max-width: 100%;
+    padding: 2px;
+    text-align: center;
+}
+.rating__dice {
+    width: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-end;
+    align-self: right;
+}
+.rating {
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px 4px rgb(85, 51, 58);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+}
+.rating__user{
+    font-family: cursive;
+    font-size:12px;
+}

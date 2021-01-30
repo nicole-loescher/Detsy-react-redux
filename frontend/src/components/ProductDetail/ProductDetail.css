@@ -10,7 +10,7 @@
 }
 .product__img {
     box-sizing: border-box;
-    max-width: 80%;
+    max-width: 90%;
     box-shadow: 0px 0px 4px 4px rgb(85, 51, 58);
     border-radius: 5px;
     margin: 10px;
@@ -23,24 +23,25 @@
     color:rgb(85, 106, 77);
     font-family: 'eczar';
     align-self: center;
-    margin: 1px 10% 1px 10%;
+    margin: 1px 2% 1px 2%;
 }
 .product__price {
     box-sizing: border-box;
     align-self: flex-end;
     padding-right: 5px;
     margin-top: 0%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 .product__details {
-    /* font-family: 'eczar'; */
     font-size: 1em;
     align-self: center;
     text-align: center;
     padding: 2%;
+    font-family: cursive;
 }
 .product__add {
-    width: 70%;
+    width: 100%;
     align-self: center;
     padding: 4px;
     background-color: rgb(85, 106, 77);
@@ -55,7 +56,7 @@
 .product-edit__button {
     background-color: rgb(85, 51, 58);
     color: white;
-    width: 70%;
+    width: 100%;
     align-self: center;
     padding: 4px;
     border-radius: 5px;
@@ -66,11 +67,34 @@
     
 }
 .product-edit__submit {
-     width: 70%;
+    width: 70%;
     align-self: center;
     padding: 4px;
     background-color: rgb(85, 106, 77);
     color: white;
     border-radius: 5px;
     text-align: center;
+}
+.high-review {
+    font-family:fantasy;
+    text-align: center;
+
+}
+.review-list-item{
+    padding: 2px;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.review-buttons{
+    align-self: center;
+    width: 50%;
+    padding: 4px;
+    background-color:  rgb(85, 51, 58);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+.review-buttons:hover {
+    color:  rgb(85, 51, 58);
+    background-color: white;
 }

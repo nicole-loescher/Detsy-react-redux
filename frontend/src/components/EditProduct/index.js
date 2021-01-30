@@ -48,30 +48,31 @@ export function EditProduct({ product, hideForm, deleteProduct }){
    const id = product.id
 
     return(
-        <div>
+        <div className='product-edit'>
             <form className='product-edit__form' onSubmit={onSubmit}>
-                <input
-                    placeholder='Product Name'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    type='text'
-                >
-                </input>
-                <input
-                    placeholder='Enter image URL'
-                    value={imgPath}
-                    onChange={(e) => setImgPath(e.target.value)}
-                    type='text'
-                >
-                </input>
-                <input
-                    placeholder='Product Price'
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    type='number'
-                >
-                </input>
+                <label>Product Name</label>
+                    <input
+                        placeholder='Product Name'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        type='text'
+                    />
+                <label>Product image</label>
+                    <input
+                        placeholder='Enter image URL'
+                        value={imgPath}
+                        onChange={(e) => setImgPath(e.target.value)}
+                        type='text'
+                    />
+                <label>Product Price</label>
+                    <input
+                        placeholder='Product Price'
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        type='money'
+                    />
                 <select
+                    hidden
                     onChange={e => setCategory_id(e.target.value)}>
                     {categoriesArr.map(category => {
                         return (
@@ -83,15 +84,15 @@ export function EditProduct({ product, hideForm, deleteProduct }){
                         )
                     })}
                 </select>
-                <textarea
-                    className='product-form__description'
-                    placeholder='Product Description'
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    type='text'
-                >
-                </textarea>
-                <button className='product-edit__submit'>Submit</button>
+                <label>Description</label>
+                    <textarea
+                        className='product-form__description'
+                        placeholder='Product Description'
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        type='text'
+                    />
+                <button onClick={onSubmit} className='product-edit__submit'>Submit</button>
             </form>
                 <button onClick={deleteProduct} className='product-edit__submit'>Delete</button>
                 <button onClick={onCancel} className='product-edit__submit'>Cancel</button>

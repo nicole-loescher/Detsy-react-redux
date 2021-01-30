@@ -18,8 +18,14 @@ export const getReviews = () => async dispatch => {
     return dispatch(reviewGetter(res.data));
 };
 
+export const getProductReview = (productId) => async dispatch =>{
+    const res = await fetch(`/api/reviews/${productId}`);
+    const review = dispatch(reviewGetter(res.data))
+    if (review === null ) return;
+    else return review;
+}
+
 export const addReview = (newReview) => async dispatch => {
-    console.log('-----hit')
     const res = await fetch('/api/reviews', {
         method: 'post',
         headers: {
@@ -29,11 +35,6 @@ export const addReview = (newReview) => async dispatch => {
     })
         return dispatch(reviewAdder(res.data.review));
         
-};
-
-const initialState = {
-    reviews: [],
-    review: []
 };
 
 const reviewReducer = (state = {}, action) => {
@@ -53,6 +54,17 @@ const reviewReducer = (state = {}, action) => {
                     ...action.review,
                 }
             };
+        }
+        case GET_REVIEW: {
+            const allReviews = {};
+            if(action.reviews === null) return null;
+            action.reviews.forEach(review => {
+                allReviews[review.id] = review;
+            })
+            return {
+                ...allReviews,
+                ...state,
+            }
         }
         default:
             return state;

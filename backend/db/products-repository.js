@@ -1,12 +1,17 @@
 // const { delete } = require('../routes/api/products');
-const { Product, Category } = require('./models');
+const { Product, Category, Review, User } = require('./models');
+
 
 async function list() {
-    return await Product.findAll()
+    return await Product.findAll({include: {
+        model: Category,
+        model: Review,
+        include: User
+    }})
 }
 
 async function one(id) {
-    return await Product.findByPk(id);
+    return await Product.findOne({where: id, include: Category});
 }
 
 async function add(details) {

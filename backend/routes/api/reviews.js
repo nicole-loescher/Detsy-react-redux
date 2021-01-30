@@ -15,4 +15,11 @@ router.post('/', asyncHandler(async(req, res)=>{
     return res.json({ review })
 }));
 
+router.get('/:productId', asyncHandler(async(req, res)=>{
+    const productId = req.params.productId;
+    const productReview = await ReviewRepo.one(productId);
+    console.log(productReview)
+    return res.json(productReview);
+}))
+
 module.exports = router;

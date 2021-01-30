@@ -1,11 +1,9 @@
-/* .product-edit__form {
-
+.product-edit,
+.product-edit button{
+    width: 100%;
 }
-.product-edit__submit{
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    border-radius: 5px;
-    color: rgb(85, 51, 58);
-    color: red;
-} */
+.product-edit__form > input,
+.product-edit__form button, 
+.product-edit__form textarea {
+    width: 100%;
+}
