@@ -3,36 +3,35 @@
     color: white;
     background-image: url('../images/dice2-gif.gif');
     width: 500px;
-    height: 610px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    margin: 0% 25% 25%;
-
-
+    margin: 0% 25% 0% 25%;
+    align-items: center;
+    border-radius: 5px;
 }
 .signup__header {
     font-size: 2.5em;
     width: auto;
     text-align: center;
-
+    font-family: fantasy;
 }
 .signup__form {
+    box-sizing: border-box;
     display:flex;
     flex-direction: column;
-    align-self: center;
+    align-items: center;
     height: auto;
     width: 300px;
-    padding: 52% 25% 10% 25%;
-
+    margin: 48% 25% 2% 25%;
 }
 input {
-    border-radius: 15%;
-    /* background-color: rgb(224, 235, 217); */
-    color: black;
+    border-radius: 5px;
+    /* color: black; */
     text-align: center;
 }
 input::placeholder {
-    color:rgb(51, 21, 43);
+    color:rgb(85, 51, 58);
 }
 .signup__submit {
     width: 30%;
@@ -40,29 +39,34 @@ input::placeholder {
     padding: 1em;
     margin: 1em;
     margin-bottom: .5px;
-    background-color: rgb(51, 21, 43);
+    background-color: rgb(85, 51, 58);
     color: white;
+    border-radius: 5px;
 }
 .signup__submit:hover {
     background-color: white;
-    color: rgb(51, 21, 43);
+    color: rgb(85, 51, 58);
     font-weight: bold;
     width: 35%;
 }
 .signup__error {
-    text-align: center;
+    position: relative;
+    text-align: left;
+    color: red;
     text-decoration: none;
-    margin: 0% 15% 0% 15%;
+    align-self: center;
 }
 .signup__cancel {
     text-align: center;
-
+    color: white;
+    border-radius: 5px;
 }
 .signup__cancel:hover {
-    color: white;
+    color: rgb(85, 51, 58);
+    background-color: white;
+    padding: 2px; 
 }
 .login__cancel {
     text-align: center;
     margin: 0% 50%;
-    color:red;
 }

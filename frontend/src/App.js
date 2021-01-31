@@ -7,6 +7,7 @@ import { ProductForm } from "./components/ProductForm";
 import SignupFormPage from "./components/SignupFormPage";
 import { ReadProduct } from "./components/ReadProduct"
 import * as sessionActions from "./store/session";
+import LoginFormPage from "./components/LoginFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ function App() {
           <Route path='/signup'>
             <SignupFormPage />
           </Route>
+          <Route path='/login'>
+            <LoginFormPage />
+          </Route>
           {/* <Route path='/products/:productId'>
             <ReadProduct />
           </Route> */}
@@ -33,7 +37,7 @@ function App() {
             <ProductForm user={user} />
           </Route>
         </Switch>
-      </>
+    </>
   );
 }
 

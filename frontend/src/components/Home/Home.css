@@ -1,13 +1,15 @@
 .home__intro {
     font-size: .25em;
-    margin-top: 0px;
+    margin-top: -10px;
     margin-bottom: 15x;
+    color:rgb(85, 106, 77);
 }
 .home__title {
     font-size: 4em;
     text-align: center;
-
+    color: rgb(85, 51, 58);
 }
 .home__noinfo {
     text-align: center;
+
 }

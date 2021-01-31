@@ -6,6 +6,7 @@ import { addToCart } from '../../store/cart'
 import './ProductDetail.css';
 import { ReviewForm } from '../ReviewForm';
 import { Rating } from '../Rating';
+import { Redirect, useHistory } from 'react-router-dom';
 
 
 export function ProductDetail({ product }) {
@@ -14,8 +15,13 @@ export function ProductDetail({ product }) {
     const [hideForm, setHideForm ]= useState(true);
     const [hideReview, setHideReview] = useState(true);
     const [hideReviewForm, setHideReviewForm]= useState(true);
+    const history = useHistory();
+
+    const signIn = (e) =>{
+        e.preventDefault()
+        history.push('/login')
+    }
     
-    console.log(product)
         let displayReview;
         if (product.Reviews[0]) {
             displayReview = (
@@ -28,14 +34,27 @@ export function ProductDetail({ product }) {
             )
         }
             let content;
+            let innerContent;
+           
         if (!user || user.id !== product.user_id){
+            if (!user) {
+                innerContent = (
+                    <button className='product__add' onClick={signIn}>Sign in to add to cart</button>                  
+                )
+            }
+            else {
+                innerContent = (
+                    <button className='product__add' onClick={() => dispatch(addToCart(product.id))}>Add to cart</button>
+                )
+            }
             content = (
                 <div>
-                <button className='product__add' onClick={()=> dispatch(addToCart(product.id))}>Add to cart</button>
-                {displayReview}
-                <button className='product__add' onClick={()=> setHideReview(false)}>see more reviews</button>
-            </div>
+                    {innerContent}
+                    {displayReview}
+                    <button className='product__add' onClick={()=> setHideReview(false)}>see more reviews</button>
+                </div>
             )
+            let innerReviewContent;
             let reviewContent;
             if(!hideReview){
                 if(!product.Reviews[0]){
@@ -61,10 +80,20 @@ export function ProductDetail({ product }) {
                          <h2>loading reviews</h2>
                     )
                 }
+                if(user){
+                 innerReviewContent = (
+                     <button className='review-buttons' onClick={()=> setHideReviewForm(false)}>Add review</button>
+                     )   
+                    }
+                else if(!user){
+                    innerReviewContent = (
+                        <button className='review-buttons' onClick={signIn}>Add review</button>
+                    )
+                }
                 content = (
                     <div>
-                        <button className='product__add' onClick={() => dispatch(addToCart(product.id))}>Add to cart</button>
-                        <button className='review-buttons' onClick={()=> setHideReviewForm(false)}>add review</button>
+                        {innerContent}
+                        {innerReviewContent}
                         <button className='review-buttons' onClick={()=> setHideReview(true)}>Hide reviews</button>
                         {reviewContent}
                     </div> 

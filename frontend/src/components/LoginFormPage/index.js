@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import './LoginForm.css';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
+import { Link, Redirect } from 'react-router-dom';
+import '../SignupFormPage/Signup.css';
+import Container from 'react-bootstrap/Container'
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -27,30 +26,33 @@ function LoginFormPage() {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-        <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-        <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <Button type="submit">Log In</Button>
-        </Form>
+        <Container className='signup'>
+            <h1 className='signup__header'>Log in, and play!</h1>
+                <form className='signup__form'onSubmit={handleSubmit}>
+                    <ul>
+                            {errors.map((error, idx) => <li className='signup__error' key={idx}>{error}</li>)}
+                    </ul>
+                <label>Username or Email </label>
+                    <input
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                <label>Password</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button className='signup__submit' type="submit">Log In</button>
+            </form>
+                <button className='signup__submit'>Cancel</button>
+            <p>Don't have an account
+                <Link className='signup__submit' to='/signup'>Sign up here</Link>
+            </p>
+        </Container>
     );
 }
 

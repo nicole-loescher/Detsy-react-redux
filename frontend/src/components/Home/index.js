@@ -9,8 +9,6 @@ export function Home() {
                 <p className='home__intro'>It's not hoarding if they are dice... </p>
             </h1>
             <ProductList  />
-            {/* <h2 className='home__noinfo'>Oh no... it looks like our dice may have rolled away! Ill go find some more!</h2> */}
-
         </div>
     )
 }

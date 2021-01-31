@@ -6,4 +6,5 @@
     border: 1px insetrgb(51, 21, 43);
     box-shadow: 0px 0px 8px 2px rgb(51, 21, 43);
     border-radius: 5px;
+    justify-content: center;
 }
