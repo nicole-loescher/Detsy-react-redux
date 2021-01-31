@@ -36,11 +36,12 @@ export function ReviewForm({ product, hide, hideForm }) {
 
             <form onSubmit={onSubmit} className='review-form'>
                 <textarea
+                className='review__comments'
                 value={comments}
                 onChange={(e)=> setComments(e.target.value)}
                 placeholder='Enter your comments'
                 />
-                <label>Rating
+                <label>Rating</label>
                 <input
                 className='rating__input'
                 value={rating}
@@ -49,10 +50,9 @@ export function ReviewForm({ product, hide, hideForm }) {
                 min='1'
                 max='10'
                 />
-                </label>
-                <button >Submit Review</button>
+                <button className='review__button'>Submit Review</button>
             </form>
-            <button onClick={onCancel}>Cancel</button>
+            <button className='review__button' onClick={onCancel}>Cancel</button>
         </div>
        
     )
