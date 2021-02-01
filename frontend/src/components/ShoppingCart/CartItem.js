@@ -3,9 +3,10 @@ export function CartItem({ id, product }){
   
     return(
         <div>
-            {product.name}
-            <div>
-                {product.price}
+            <img src={product.imgPath} className='cart__img' />
+            <div className='cart_desc'>
+                {product.name}
+                ${product.price}
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import '../SignupFormPage/Signup.css';
 import Container from 'react-bootstrap/Container'
 
@@ -11,6 +11,7 @@ function LoginFormPage() {
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
+    const history = useHistory();
 
     if (sessionUser) return (
         <Redirect to="/" />
@@ -48,7 +49,7 @@ function LoginFormPage() {
                     />
                     <button className='signup__submit' type="submit">Log In</button>
             </form>
-                <button className='signup__submit'>Cancel</button>
+                <button className='signup__submit' onClick={()=> history.push('/')}>Cancel</button>
             <p>Don't have an account
                 <Link className='signup__submit' to='/signup'>Sign up here</Link>
             </p>
