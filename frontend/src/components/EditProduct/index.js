@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateProduct } from '../../store/product'
 import './EditProduct.css'
 
@@ -10,6 +10,7 @@ export function EditProduct({ product, hideForm, deleteProduct }){
     const [description, setDescription] = useState(product.description);
     const [imgPath, setImgPath] = useState(product.imgPath);
     const dispatch = useDispatch();
+    const user_id = useSelector(state => state.session.user.id)
     
     const categoriesArr = [
         '1',
@@ -26,8 +27,10 @@ export function EditProduct({ product, hideForm, deleteProduct }){
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        const id = product.id
 
         const payload ={
+            user_id,
             id,
             name,
             price,
@@ -45,7 +48,6 @@ export function EditProduct({ product, hideForm, deleteProduct }){
         e.preventDefault();
         hideForm();
     }
-   const id = product.id
 
     return(
         <div className='product-edit'>

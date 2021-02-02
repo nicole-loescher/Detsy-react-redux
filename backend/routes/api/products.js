@@ -34,8 +34,8 @@ router.get('/:id', asyncHandler(async(req, res)=>{
 }));
 
 router.post('', validateProduct, asyncHandler(async (req, res) => {
-        const { name, imgPath, price, category_id, user_id, description } = req.body;
-        const product = await ProductRepo.add({ name, imgPath, price, category_id, user_id, description });
+        const { id, name, imgPath, price, category_id, user_id, description } = req.body;
+        const product = await ProductRepo.add({id, name, imgPath, price, category_id, user_id, description });
         return res.json({
             product,
         });
@@ -45,9 +45,7 @@ router.post('', validateProduct, asyncHandler(async (req, res) => {
 router.put('/:id', validateProduct, asyncHandler(async (req, res)=>{
     const id = req.params.id;
     const { name, imgPath, price, category_id, user_id, description } = req.body;
-    const productId = await ProductRepo.update({ id, name, imgPath, price, category_id, user_id, description });
-    const product = await ProductRepo.one(productId);
-
+    const product = await ProductRepo.update({ id, name, imgPath, price, category_id, user_id, description });
     return res.json({product});
 }));
 

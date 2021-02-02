@@ -18,17 +18,15 @@ async function add(details) {
     const product = await Product.create(details);
     return product.id
 }
+
 async function update(details) {
     const id = details.id;
     delete details.id;
-    await Product.update(
-        details,
-        {
-            where: { id }
-        }
-    );
-    return id;
+    const newProduct = await Product.findByPk(id)
+    await newProduct.update(details);
+    return newProduct;
 }
+
 async function deleteProduct(id) {
     const product = await Product.findByPk(id);
     await product.destroy({ where: { id }});
