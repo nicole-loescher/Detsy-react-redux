@@ -16,10 +16,11 @@ router.post('/', asyncHandler(async(req, res)=>{
 }));
 
 router.get('/:productId', asyncHandler(async(req, res)=>{
+    console.log('=====hit route=======')
     const productId = req.params.productId;
     const productReview = await ReviewRepo.one(productId);
-    console.log(productReview)
-    return res.json(productReview);
+
+    console.log(res.json(productReview), '........printed from api route......')
 }))
 
 module.exports = router;

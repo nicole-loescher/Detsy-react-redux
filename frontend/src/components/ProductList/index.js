@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, deleteProduct } from '../../store/product';
-import { getReviews } from '../../store/review';
+import { addReview, getProductReview, getReviews } from '../../store/review';
 import { ProductDetail } from '../ProductDetail';
 import './ProductList.css'
 

@@ -7,6 +7,7 @@ import './ProductDetail.css';
 import { ReviewForm } from '../ReviewForm';
 import { Rating } from '../Rating';
 import { Redirect, useHistory } from 'react-router-dom';
+import { addReview, getProductReview } from '../../store/review';
 
 
 export function ProductDetail({ product }) {
@@ -17,6 +18,10 @@ export function ProductDetail({ product }) {
     const [hideReviewForm, setHideReviewForm]= useState(true);
     const history = useHistory();
 
+    
+    useEffect(()=>{
+        dispatch(getProductReview(product.id))
+    },[dispatch,product.id])
     const signIn = (e) =>{
         e.preventDefault()
         history.push('/login')

@@ -19,7 +19,7 @@ export function ReviewForm({ product, hide, hideForm }) {
             product_id,
             comments,
             rating
-        }))
+        })).then(dispatch(reviewActions.getProductReview(product.id)))
         if(review){
             hide();
             hideForm();
@@ -30,6 +30,7 @@ export function ReviewForm({ product, hide, hideForm }) {
         hide();
         hideForm();
     }
+
    
     if(user_id) return (
         <div className='rating'>
